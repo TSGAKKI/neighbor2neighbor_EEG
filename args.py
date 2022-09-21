@@ -24,7 +24,7 @@ def get_args():
                         default=None,
                         help='Dir of raw EEG EOG EMG (.py) .')
     # model settings
-    parser.add_argument('--dataset', type=str, default= 'ISRUC')
+    parser.add_argument('--dataset', type=str, default= 'EEGDenoiseNet')
 
     parser.add_argument('--position', type=str, default= 'full') 
 
@@ -58,7 +58,9 @@ def get_args():
                         type=int,
                         default=100,
                         help='Number of epochs for training.')
-
+    parser.add_argument("--Lambda1", type=float, default=1.0)
+    parser.add_argument("--Lambda2", type=float, default=1.0)   
+    parser.add_argument("--increase_ratio", type=float, default=2.0)
     parser.add_argument(
         '--patience',
         type=int,
